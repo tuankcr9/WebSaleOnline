@@ -1,0 +1,30 @@
+package com.example.demo;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+@Service
+@Transactional
+public class UserService {
+
+	@Autowired
+	private UserRepository repo;
+	
+	public User login(Long sodienthoai, String matkhau) {
+		Optional<User> op = repo.findById(sodienthoai);
+		if(op.isPresent() && matkhau.equals(op.get().getMatkhau())){
+			op.get().setMatkhau("");
+			return op.get();
+		}
+		return null;
+	}
+	
+	
+//	public void getUser(User user) {
+//		repo.findAll(user)
+//	}
+}

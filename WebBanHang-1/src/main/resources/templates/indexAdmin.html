@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Management</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+   
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>QUẢN LÝ SẢN PHẨM</h2>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <td colspan="7">
+                <a href="newproduct" class="btn btn-primary">THÊM SẢN PHẨM MỚI</a><a href="loginadmin" class="btn btn-info">Logout</a>
+            </td>
+        </tr>
+        <tr>
+            <th>Image</th>
+            <th>Name</th>
+            <th>price</th>
+            <th>Made In</th>
+            <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        	<tr th:each="product : ${listProducts}">
+            	<td><img th:src="${product.image}" style="max-height: 50px"></td>
+                <td th:text="${product.name}">Name</td>
+                <td th:text="${product.price}">price</td>
+                <td th:text="${product.madein}">Made In</td>
+                <td th:text="${product.description}">Description</td>
+                <td>
+                	<a th:href="@{'/edit/' + ${product.id}}">Edit</a>
+                	&nbsp;&nbsp;&nbsp;
+                	<a th:href="@{'/delete/' + ${product.id}}">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

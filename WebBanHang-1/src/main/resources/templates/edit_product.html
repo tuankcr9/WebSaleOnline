@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8" />
+	<!--Import Bootstrap-->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<title>Edit Product</title>
+
+	<style>
+		body{
+			background-color: #76b852;
+		}
+	</style>
+</head>
+<body>
+	<div class="container tm-mt-big tm-mb-big" style="background-color: #b2d3bb; margin-top: 50px; padding-bottom: 50px; border-radius: 5px;">
+		<div class="row">
+		  <div class="col-xl-9 col-lg-10 col-md-12 col-sm-12 mx-auto" >
+			<div class="tm-bg-primary-dark tm-block tm-block-h-auto"  >
+			  <div class="row">
+				<div class="col-12">
+				  <h2 class="tm-block-title d-inline-block" style="padding-top: 50px; padding-bottom: 30px">Edit Product</h2>
+				</div>
+			  </div>
+			  <form action="#" th:action="@{/saveproduct}" th:object="${product}"
+			method="post" class="tm-edit-product-form">
+			ID
+			<input type="text" th:field="*{id}" readonly="readonly" class="form-control validate"
+						required/>
+						Name
+					  <input
+						type="text"
+						th:field="*{name}"
+						class="form-control validate"
+						required
+					  />
+						Price
+						<input
+						 type="text"
+						th:field="*{price}"
+						  class="form-control validate"
+						  required
+						/>
+						Made in
+						<input
+						type="text"
+						th:field="*{madein}"
+						class="form-control validate"
+						required
+					  />
+
+						Description
+						<input
+						  type="text"
+						th:field="*{description}"
+						  class="form-control validate"
+						  required
+						/>
+						Image
+						<input
+						  type="text"
+						th:field="*{image}"
+						  class="form-control validate"
+						/>
+				  <button type="submit" class="btn btn-primary btn-block text-uppercase">Save Product</button>
+				</div>
+			  </form>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  </div>
+</body>
+</html>
